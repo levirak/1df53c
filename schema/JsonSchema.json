@@ -1,0 +1,30 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "additionalProperties": {
+      "additionalProperties": {},
+      "type": "object"
+    },
+    "properties": {
+      "additionalProperties": {},
+      "type": "object"
+    },
+    "required": {
+      "items": {},
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "type": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "type",
+    "required",
+    "properties",
+    "additionalProperties"
+  ],
+  "type": "object"
+}

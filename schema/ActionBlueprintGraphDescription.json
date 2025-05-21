@@ -1,0 +1,142 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "description": "A URL to the JSON Schema for this object.",
+      "examples": [
+        "https://example.com/schemas/ActionBlueprintGraphDescription.json"
+      ],
+      "format": "uri",
+      "readOnly": true,
+      "type": "string"
+    },
+    "blueprint_id": {
+      "description": "Unique identifier for the action blueprint",
+      "examples": [
+        "bp_12345"
+      ],
+      "type": "string"
+    },
+    "blueprint_name": {
+      "description": "The name of the action blueprint",
+      "examples": [
+        "Customer Onboarding"
+      ],
+      "type": "string"
+    },
+    "branches": {
+      "description": "List of branches (decision points) in this action blueprint",
+      "items": {
+        "$ref": "/schemas/ActionBranchDescription.json"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "edges": {
+      "items": {
+        "$ref": "/schemas/ActionBlueprintGraphEdgeDescription.json"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "forms": {
+      "description": "List of forms associated with this action blueprint",
+      "items": {
+        "$ref": "/schemas/ActionFormDescription.json"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "nodes": {
+      "items": {
+        "$ref": "/schemas/ActionBlueprintGraphNodeDescription.json"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "promoted_data_order": {
+      "description": "The order of data promotion for the action blueprint",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "status": {
+      "description": "The status of the blueprint version",
+      "enum": [
+        "draft",
+        "published",
+        "historical",
+        "archived"
+      ],
+      "examples": [
+        "draft"
+      ],
+      "type": "string"
+    },
+    "tenant_id": {
+      "description": "Identifier of the tenant this blueprint belongs to",
+      "examples": [
+        "t_67890"
+      ],
+      "type": "string"
+    },
+    "triggers": {
+      "description": "List of trigger endpoints associated with this action blueprint",
+      "items": {
+        "$ref": "/schemas/TriggerEndpointDescription.json"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "version_id": {
+      "description": "Unique identifier for the action blueprint version",
+      "examples": [
+        "bpv_123"
+      ],
+      "type": "string"
+    },
+    "version_notes": {
+      "description": "The version notes of the blueprint",
+      "examples": [
+        "Initial draft"
+      ],
+      "type": "string"
+    },
+    "version_number": {
+      "description": "The version number of the blueprint",
+      "examples": [
+        "v1.0.0"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "blueprint_id",
+    "version_id",
+    "tenant_id",
+    "blueprint_name",
+    "version_number",
+    "version_notes",
+    "status",
+    "nodes",
+    "edges",
+    "forms",
+    "branches",
+    "triggers"
+  ],
+  "type": "object"
+}

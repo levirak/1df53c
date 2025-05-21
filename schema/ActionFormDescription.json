@@ -1,0 +1,102 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "description": "A URL to the JSON Schema for this object.",
+      "examples": [
+        "https://example.com/schemas/ActionFormDescription.json"
+      ],
+      "format": "uri",
+      "readOnly": true,
+      "type": "string"
+    },
+    "created_at": {
+      "description": "The date and time the form was created",
+      "examples": [
+        "2024-01-01T00:00:00Z"
+      ],
+      "format": "date-time",
+      "type": "string"
+    },
+    "created_by": {
+      "description": "The email of the user who created the form",
+      "examples": [
+        "user@email.com"
+      ],
+      "type": "string"
+    },
+    "custom_javascript": {
+      "description": "Custom javascript to run on the form",
+      "type": "string"
+    },
+    "custom_javascript_triggering_fields": {
+      "description": "The fields that will trigger the custom javascript",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "description": {
+      "description": "The form description",
+      "examples": [
+        "This is my form"
+      ],
+      "type": "string"
+    },
+    "dynamic_field_config": {
+      "additionalProperties": {
+        "$ref": "/schemas/DynamicFieldConfigInput.json"
+      },
+      "type": "object"
+    },
+    "field_schema": {
+      "$ref": "/schemas/JsonSchema.json",
+      "description": "The form schema, using jsonforms.io syntax"
+    },
+    "id": {
+      "description": "The form ID",
+      "examples": [
+        "f_456"
+      ],
+      "type": "string"
+    },
+    "is_reusable": {
+      "description": "Whether the form is reusable",
+      "type": "boolean"
+    },
+    "name": {
+      "description": "The form name",
+      "examples": [
+        "My Form"
+      ],
+      "type": "string"
+    },
+    "ui_schema": {
+      "$ref": "/schemas/ActionFormUISchemaDescription.json",
+      "description": "The form UI schema"
+    },
+    "updated_at": {
+      "description": "The date and time the form was last updated",
+      "examples": [
+        "2024-01-01T00:00:00Z"
+      ],
+      "format": "date-time",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "description",
+    "is_reusable",
+    "field_schema",
+    "dynamic_field_config",
+    "created_by",
+    "created_at",
+    "updated_at"
+  ],
+  "type": "object"
+}

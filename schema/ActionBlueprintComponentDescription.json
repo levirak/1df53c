@@ -1,0 +1,236 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "approval_auto_assign_config": {
+      "$ref": "/schemas/AutoAssignConfigInput.json",
+      "description": "Configuration for how the component should be auto-assigned to an agent when change status to pending_approval"
+    },
+    "approval_required": {
+      "description": "Whether the component requires approval before it can be run",
+      "examples": [
+        false
+      ],
+      "type": "boolean"
+    },
+    "approval_roles": {
+      "description": "List of roles that are required to approve this component before it can be run",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "approval_scheduled_delay": {
+      "$ref": "/schemas/DurationInput.json",
+      "description": "The delay before the approval task is scheduled to run. If the calculated time falls on a weekend, it will be automatically moved to the next business day (Monday). Note that holidays are not considered.",
+      "examples": [
+        {
+          "time": 3600,
+          "unit": "minutes"
+        }
+      ]
+    },
+    "approval_sla_duration": {
+      "$ref": "/schemas/DurationInput.json",
+      "description": "The SLA for the approval task. If the calculated deadline falls on a weekend, it will be automatically moved to the next business day (Monday). Note that holidays are not considered.",
+      "examples": [
+        {
+          "time": 3600,
+          "unit": "minutes"
+        }
+      ]
+    },
+    "approval_task_name": {
+      "description": "The name of the approval task to use for this component. If not provided, the task will be called 'Review: <Name>'",
+      "type": "string"
+    },
+    "auto_assign_config": {
+      "$ref": "/schemas/AutoAssignConfigInput.json",
+      "description": "Configuration for how the component should be auto-assigned to an agent"
+    },
+    "component_id": {
+      "description": "The form / branch / trigger / configuration endpoint ID",
+      "examples": [
+        "f_12345"
+      ],
+      "type": "string"
+    },
+    "component_key": {
+      "description": "The component key for the component",
+      "examples": [
+        "component-key-1"
+      ],
+      "type": "string"
+    },
+    "component_type": {
+      "description": "The component type enum, form | branch | trigger | configuration",
+      "enum": [
+        "form",
+        "branch",
+        "trigger",
+        "configuration"
+      ],
+      "examples": [
+        "form"
+      ],
+      "type": "string"
+    },
+    "data_promotion_config": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "The configuration for how data is promoted to top level action data",
+      "type": "object"
+    },
+    "id": {
+      "description": "Unique identifier for the action blueprint component",
+      "examples": [
+        "bp_c_12345"
+      ],
+      "type": "string"
+    },
+    "input_mapping": {
+      "additionalProperties": {
+        "discriminator": {
+          "mapping": {
+            "action_component_data": "/schemas/ActionComponentDataExpression.json",
+            "action_data": "/schemas/ActionDataExpression.json",
+            "agent_directly_assigned": "/schemas/AgentDirectlyAssignedExpression.json",
+            "agent_related_to": "/schemas/AgentRelatedToExpression.json",
+            "aggregate": "/schemas/AggregateExpression.json",
+            "and": "/schemas/AndExpression.json",
+            "binary": "/schemas/BinaryExpression.json",
+            "client_organisation": "/schemas/ClientOrganisationExpression.json",
+            "column": "/schemas/ColumnExpression.json",
+            "exists": "/schemas/ExistsExpression.json",
+            "form_field": "/schemas/FormFieldExpression.json",
+            "literal": "/schemas/LiteralExpression.json",
+            "not": "/schemas/NotExpression.json",
+            "or": "/schemas/OrExpression.json",
+            "property": "/schemas/PropertyExpression.json",
+            "task_owner": "/schemas/TaskOwnerExpression.json"
+          },
+          "propertyName": "type"
+        },
+        "oneOf": [
+          {
+            "$ref": "/schemas/ActionComponentDataExpression.json"
+          },
+          {
+            "$ref": "/schemas/ActionDataExpression.json"
+          },
+          {
+            "$ref": "/schemas/AgentDirectlyAssignedExpression.json"
+          },
+          {
+            "$ref": "/schemas/AgentRelatedToExpression.json"
+          },
+          {
+            "$ref": "/schemas/AggregateExpression.json"
+          },
+          {
+            "$ref": "/schemas/AndExpression.json"
+          },
+          {
+            "$ref": "/schemas/BinaryExpression.json"
+          },
+          {
+            "$ref": "/schemas/ClientOrganisationExpression.json"
+          },
+          {
+            "$ref": "/schemas/ColumnExpression.json"
+          },
+          {
+            "$ref": "/schemas/ExistsExpression.json"
+          },
+          {
+            "$ref": "/schemas/FormFieldExpression.json"
+          },
+          {
+            "$ref": "/schemas/LiteralExpression.json"
+          },
+          {
+            "$ref": "/schemas/NotExpression.json"
+          },
+          {
+            "$ref": "/schemas/OrExpression.json"
+          },
+          {
+            "$ref": "/schemas/PropertyExpression.json"
+          },
+          {
+            "$ref": "/schemas/TaskOwnerExpression.json"
+          }
+        ]
+      },
+      "description": "For components that take inputs, this maps the input keys to the expression that will be used to extract the value at runtime",
+      "type": "object"
+    },
+    "name": {
+      "description": "Human-readable name of the action blueprint component",
+      "examples": [
+        "Customer Onboarding"
+      ],
+      "type": "string"
+    },
+    "permitted_roles": {
+      "description": "List of roles that are permitted to run this component",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "prerequisites": {
+      "description": "List of component keys that must be completed before this component can be run",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "scheduled_delay": {
+      "$ref": "/schemas/DurationInput.json",
+      "description": "The delay before the component is scheduled to run. If the calculated time falls on a weekend, it will be automatically moved to the next business day (Monday). Note that holidays are not considered.",
+      "examples": [
+        {
+          "time": 3600,
+          "unit": "minutes"
+        }
+      ]
+    },
+    "sla_duration": {
+      "$ref": "/schemas/DurationInput.json",
+      "description": "The SLA for the component. If the calculated deadline falls on a weekend, it will be automatically moved to the next business day (Monday). Note that holidays are not considered.",
+      "examples": [
+        {
+          "time": 3600,
+          "unit": "minutes"
+        }
+      ]
+    },
+    "state_transition_rules": {
+      "$ref": "/schemas/StateTransitionRulesInput.json",
+      "description": "Configuration for automatic state transitions - e.g. a condition where a form approval can be skipped"
+    }
+  },
+  "required": [
+    "id",
+    "component_key",
+    "component_type",
+    "component_id",
+    "name",
+    "prerequisites",
+    "permitted_roles",
+    "input_mapping",
+    "approval_required",
+    "approval_roles"
+  ],
+  "type": "object"
+}

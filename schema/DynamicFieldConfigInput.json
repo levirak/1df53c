@@ -1,0 +1,95 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "endpoint_id": {
+      "type": "string"
+    },
+    "output_key": {
+      "type": "string"
+    },
+    "payload_fields": {
+      "additionalProperties": {
+        "discriminator": {
+          "mapping": {
+            "action_component_data": "/schemas/ActionComponentDataExpression.json",
+            "action_data": "/schemas/ActionDataExpression.json",
+            "agent_directly_assigned": "/schemas/AgentDirectlyAssignedExpression.json",
+            "agent_related_to": "/schemas/AgentRelatedToExpression.json",
+            "aggregate": "/schemas/AggregateExpression.json",
+            "and": "/schemas/AndExpression.json",
+            "binary": "/schemas/BinaryExpression.json",
+            "client_organisation": "/schemas/ClientOrganisationExpression.json",
+            "column": "/schemas/ColumnExpression.json",
+            "exists": "/schemas/ExistsExpression.json",
+            "form_field": "/schemas/FormFieldExpression.json",
+            "literal": "/schemas/LiteralExpression.json",
+            "not": "/schemas/NotExpression.json",
+            "or": "/schemas/OrExpression.json",
+            "property": "/schemas/PropertyExpression.json",
+            "task_owner": "/schemas/TaskOwnerExpression.json"
+          },
+          "propertyName": "type"
+        },
+        "oneOf": [
+          {
+            "$ref": "/schemas/ActionComponentDataExpression.json"
+          },
+          {
+            "$ref": "/schemas/ActionDataExpression.json"
+          },
+          {
+            "$ref": "/schemas/AgentDirectlyAssignedExpression.json"
+          },
+          {
+            "$ref": "/schemas/AgentRelatedToExpression.json"
+          },
+          {
+            "$ref": "/schemas/AggregateExpression.json"
+          },
+          {
+            "$ref": "/schemas/AndExpression.json"
+          },
+          {
+            "$ref": "/schemas/BinaryExpression.json"
+          },
+          {
+            "$ref": "/schemas/ClientOrganisationExpression.json"
+          },
+          {
+            "$ref": "/schemas/ColumnExpression.json"
+          },
+          {
+            "$ref": "/schemas/ExistsExpression.json"
+          },
+          {
+            "$ref": "/schemas/FormFieldExpression.json"
+          },
+          {
+            "$ref": "/schemas/LiteralExpression.json"
+          },
+          {
+            "$ref": "/schemas/NotExpression.json"
+          },
+          {
+            "$ref": "/schemas/OrExpression.json"
+          },
+          {
+            "$ref": "/schemas/PropertyExpression.json"
+          },
+          {
+            "$ref": "/schemas/TaskOwnerExpression.json"
+          }
+        ]
+      },
+      "type": "object"
+    },
+    "selector_field": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "payload_fields",
+    "endpoint_id"
+  ],
+  "type": "object"
+}

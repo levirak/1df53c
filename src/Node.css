@@ -1,0 +1,27 @@
+.form-node {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+
+    padding: 10px;
+    border-radius: var(--xy-node-border-radius, var(--xy-node-border-radius-default));
+    width: 150px;
+    font-size: 12px;
+    color: var(--xy-node-color, var(--xy-node-color-default));
+    text-align: center;
+    border: var(--xy-node-border, var(--xy-node-border-default));
+    background-color: var(--xy-node-background-color, var(--xy-node-background-color-default));
+
+    .form-icon {
+        display: flex;
+        align-items: center;
+    }
+
+    .form-data {
+        text-align: left;
+        flex: 0 1 content;
+
+        .form-type { font-size: 0.75em; }
+        .form-name { font-size: 1.5em; }
+    }
+}

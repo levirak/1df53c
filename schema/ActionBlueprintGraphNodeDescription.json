@@ -1,0 +1,40 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "data": {
+      "$ref": "/schemas/ActionBlueprintComponentDescription.json",
+      "description": "The data for the node"
+    },
+    "id": {
+      "description": "The id for the node (The id in this case is the component key)",
+      "type": "string"
+    },
+    "position": {
+      "$ref": "/schemas/Position.json",
+      "description": "The position of the node",
+      "examples": [
+        {
+          "x": 100,
+          "y": 200
+        }
+      ]
+    },
+    "type": {
+      "description": "The type of the node",
+      "enum": [
+        "form",
+        "branch",
+        "trigger",
+        "configuration"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "position",
+    "data"
+  ],
+  "type": "object"
+}

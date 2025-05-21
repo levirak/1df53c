@@ -1,0 +1,18 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "source": {
+      "description": "The source node ID (The id in this case is the component key)",
+      "type": "string"
+    },
+    "target": {
+      "description": "The target node ID (The id in this case is the component key)",
+      "type": "string"
+    }
+  },
+  "required": [
+    "source",
+    "target"
+  ],
+  "type": "object"
+}
